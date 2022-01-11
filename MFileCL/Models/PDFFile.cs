@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MFileCL.Models
 {
-    internal class PDFFile
+    public class PDFFile
     {
         public int ID { get; set; }
         public String? Name { get; set; }

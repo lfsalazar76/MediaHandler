@@ -7,4 +7,3 @@ primary key (ID)
 )
 go
 
-select * from PDFFile

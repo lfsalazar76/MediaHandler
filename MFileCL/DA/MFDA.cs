@@ -10,7 +10,7 @@ using System.Data;
 
 namespace MFileCL.DA
 {
-    internal static class MFDA
+    public  static class MFDA
     {
         public static IConfiguration GetConfiguration()
         {

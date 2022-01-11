@@ -8,7 +8,7 @@ using static MFileCL.DA.MFDA;
 
 namespace MFileCL.BL
 {
-    internal static class MFLogic
+    public static class MFLogic
     {
         public static int AddFile(String FN,String FL,int FS)
         {
