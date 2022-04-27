@@ -47,6 +47,9 @@ namespace MediaHandlerWeb.Controllers
         {
             try
             {
+                int temp = int.Parse(collection["Filesize"]);
+                
+                MFileCL.BL.MFLogic.AddFile(collection["Name"], collection["Location"], temp);
                 return RedirectToAction(nameof(Index));
             }
             catch
