@@ -31,7 +31,15 @@ namespace MediaHandlerWeb.Controllers
         // GET: PDFFileController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            MFileCL.Models.PDFFile PdffileDB = MFLogic.GetPDFFile(id);
+            MediaHandlerWeb.Models.PDFFileModelView pdfweb = new Models.PDFFileModelView
+            {
+                ID = PdffileDB.ID,
+                Filesize = PdffileDB.Filesize,
+                Location = PdffileDB.Location,
+                Name = PdffileDB.Name
+            };
+            return View(pdfweb);
         }
 
         // GET: PDFFileController/Create
@@ -61,7 +69,15 @@ namespace MediaHandlerWeb.Controllers
         // GET: PDFFileController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            MFileCL.Models.PDFFile PdffileDB = MFLogic.GetPDFFile(id);
+            MediaHandlerWeb.Models.PDFFileModelView pdfweb = new Models.PDFFileModelView
+            {
+                ID = PdffileDB.ID,
+                Filesize = PdffileDB.Filesize,
+                Location = PdffileDB.Location,
+                Name = PdffileDB.Name
+            };
+            return View(pdfweb);
         }
 
         // POST: PDFFileController/Edit/5
@@ -71,6 +87,7 @@ namespace MediaHandlerWeb.Controllers
         {
             try
             {
+                MFileCL.BL.MFLogic.EditFile(id, collection["Name"], collection["Location"], int.Parse(collection["FileSize"]));
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -82,7 +99,15 @@ namespace MediaHandlerWeb.Controllers
         // GET: PDFFileController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            MFileCL.Models.PDFFile PdffileDB = MFLogic.GetPDFFile(id);
+            MediaHandlerWeb.Models.PDFFileModelView pdfweb = new Models.PDFFileModelView
+            {
+                ID = PdffileDB.ID,
+                Filesize = PdffileDB.Filesize,
+                Location = PdffileDB.Location,
+                Name = PdffileDB.Name
+            };
+            return View(pdfweb);
         }
 
         // POST: PDFFileController/Delete/5
@@ -92,6 +117,7 @@ namespace MediaHandlerWeb.Controllers
         {
             try
             {
+                MFileCL.BL.MFLogic.DeleteFile(id);
                 return RedirectToAction(nameof(Index));
             }
             catch

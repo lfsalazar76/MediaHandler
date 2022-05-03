@@ -28,6 +28,12 @@ namespace MFileCL.BL
             return LoadData<PDFFile>(sql).FirstOrDefault();
         }
 
+        public static int EditFile(int vid,string fn, string fl, int fs)
+        {
+            PDFFile f = new PDFFile { ID = vid, Name = fn, Location = fl, Filesize = fs};
+            return SaveData("update dbo.PDFFile set Name = @Name, Location=@Location,FileSize = @FileSize where ID = @ID",f);
+        }
+
         public static int DeleteFile(int id)
         {
             PDFFile pdf = new PDFFile
